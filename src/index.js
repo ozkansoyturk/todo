@@ -17,6 +17,7 @@ const displayTodo = () => {
   const todosNode = todos.map((todo, index) => {
     return createTodoElement(todo, index);
   });
+  console.log(todosNode);
   ul.innerHTML = "";
   ul.append(...todosNode);
 };
@@ -27,6 +28,7 @@ const createTodoElement = (todo, index) => {
     <span class="todo ${todo.done ? "done" : ""}"></span>
     <p>${todo.text}</p>
   `;
+  console.log(li);
   return li;
 };
 
