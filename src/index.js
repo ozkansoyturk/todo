@@ -78,10 +78,13 @@ form.addEventListener("submit", (event) => {
 });
 
 const addTodo = (text) => {
-  todos.unshift({
-    text,
-    done: false,
-  });
+  text = text.trim();
+  if (text) {
+    todos.unshift({
+      text,
+      done: false,
+    });
+  }
   displayTodo();
 };
 
