@@ -84,8 +84,8 @@ const addTodo = (text) => {
       text,
       done: false,
     });
+    displayTodo();
   }
-  displayTodo();
 };
 
 const deleteTodo = (index) => {
