@@ -41,7 +41,7 @@ const createTodoElement = (todo, index) => {
 
   li.innerHTML = `
   <span class="todo ${todo.done ? "done" : ""}"></span>
-  <p>${todo.text}</p>
+  <p class="${todo.done ? "done" : ""}">${todo.text}</p>
   `;
   li.addEventListener("click", (event) => {
     toggleTodo(index);
