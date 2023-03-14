@@ -40,7 +40,7 @@ button {
   background-color: #e84118;
 }
 
-.modify {
+.edit {
   background-color: #00a8ff;
 }
 
@@ -69,6 +69,10 @@ li {
   display: flex;
   align-items: center;
   padding: 10px 0;
+}
+
+li input {
+  flex: 1;
 }
 
 li p {
