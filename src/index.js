@@ -34,8 +34,13 @@ const createTodoElement = (todo, index) => {
     event.stopPropagation();
     deleteTodo(index);
   });
+
   buttonEdit.addEventListener("click", (event) => {
     event.stopPropagation();
+    toggleEditMode(index);
+  });
+
+  li.addEventListener("dblclick", (event) => {
     toggleEditMode(index);
   });
 
