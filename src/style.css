@@ -72,6 +72,12 @@ li {
   cursor: pointer;
 }
 
+li:hover {
+  background: lightblue;
+  border-radius: 5px;
+  padding: 10px 0px 10px 5px;
+}
+
 li input {
   flex: 1;
 }

@@ -25,10 +25,10 @@ const createTodoElement = (todo, index) => {
   const li = document.createElement("li");
   const buttonDelete = document.createElement("button");
   buttonDelete.innerHTML = "Supprimer";
-  buttonDelete.className = "delete";
+  buttonDelete.classList.add("delete");
   const buttonEdit = document.createElement("button");
   buttonEdit.innerHTML = "Modifier";
-  buttonEdit.className = "edit";
+  buttonEdit.classList.add("edit");
 
   buttonDelete.addEventListener("click", (event) => {
     event.stopPropagation();
@@ -59,13 +59,22 @@ const createEditTodoElement = (todo, index) => {
   buttonSave.innerHTML = `Save`;
   const buttonCancel = document.createElement("button");
   buttonCancel.innerHTML = `Cancel`;
+
   buttonCancel.addEventListener("click", (event) => {
     event.stopPropagation();
     toggleEditMode(index);
   });
+
   buttonSave.addEventListener("click", (event) => {
     editTodo(index, input);
   });
+
+  input.addEventListener("keydown", (event) => {
+    if (event.key === "Enter") {
+      editTodo(index, input);
+    }
+  });
+
   li.append(input, buttonCancel, buttonSave);
   return li;
 };
