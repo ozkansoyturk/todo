@@ -15,7 +15,6 @@ form.addEventListener("submit", (event) => {
   } else {
     alert("il faut entrer des mots");
   }
-  displayTodo();
 });
 
 const displayTodo = () => {
@@ -32,13 +31,17 @@ const createTodoElement = (todo, index) => {
   buttonDelete.innerHTML = "Supprimer";
   buttonDelete.className = "delete";
   buttonDelete.addEventListener("click", (event) => {
-    deleteTodo();
+    event.stopPropagation();
+    deleteTodo(index);
   });
   li.innerHTML = `
     <span class="todo ${todo.done ? "done" : ""}"></span>
     <p>${todo.text}</p>
     <button class="modify">modifier</button>
     `;
+  li.addEventListener("click", (event) => {
+    toggleTodo(index);
+  });
   li.appendChild(buttonDelete);
   return li;
 };
@@ -48,10 +51,17 @@ const addTodo = (text) => {
     text,
     done: false,
   });
+  displayTodo();
 };
 
 const deleteTodo = (index) => {
   todos.splice(index, 1);
   displayTodo();
 };
+
+const toggleTodo = (index) => {
+  todos[index].done = !todos[index].done;
+  displayTodo();
+};
+
 displayTodo();
