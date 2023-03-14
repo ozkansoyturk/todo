@@ -5,6 +5,7 @@
 Essayez d'améliorer notre liste de todo en ajoutant les fonctionnalités suivantes :
 
 1° Empêcher l'ajout de todo vide.
+
 2° Mettre une majuscule à la première lettre du texte de la todo.
 3° Barrer le texte de la todo lorsqu'elle est terminée.
 4° Ajouter un curseur pointer sur les todos.
