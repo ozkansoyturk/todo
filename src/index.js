@@ -5,7 +5,7 @@ const form = document.querySelector("form");
 const input = document.querySelector("form > input");
 
 const todos = [
-  { text: "je suis une todo", done: false, editMode: true },
+  { text: "je suis une todo", done: false, editMode: false },
   { text: "je suis une autre todo", done: false, editMode: false },
 ];
 
@@ -48,7 +48,7 @@ const createTodoElement = (todo, index) => {
   <span class="todo ${todo.done ? "done" : ""}"></span>
   <p class="${todo.done ? "done" : ""}">${todo.text}</p>
   `;
-  li.addEventListener("click", (event) => {
+  li.addEventListener("click", () => {
     toggleTodo(index);
   });
   li.append(buttonEdit, buttonDelete);
@@ -70,7 +70,7 @@ const createEditTodoElement = (todo, index) => {
     toggleEditMode(index);
   });
 
-  buttonSave.addEventListener("click", (event) => {
+  buttonSave.addEventListener("click", () => {
     editTodo(index, input);
   });
 
@@ -94,7 +94,7 @@ form.addEventListener("submit", (event) => {
 const addTodo = (text) => {
   text = text.trim();
   if (text) {
-    todos.unshift({
+    todos.push({
       text: `${text[0].toUpperCase()}${text.slice(1)}`,
       done: false,
     });
